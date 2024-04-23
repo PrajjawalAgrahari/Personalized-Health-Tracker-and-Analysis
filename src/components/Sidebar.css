@@ -1,0 +1,22 @@
+ul li {
+    list-style: none;
+    font-weight: 500;
+    display: flex;
+    gap: 16px;
+    padding: 10px;
+    padding-left: 25px;
+    /* text-align: center; */
+}
+
+.main {
+    width: 20vw;
+    height: 100vh;
+}
+
+.img {
+    margin: auto;
+}
+
+.cont{
+    /* gap: 16px; */
+}
