@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./exf1.css";
+// import "./exf1.css";
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <header>
         <h1>Exercises for Overweight People</h1>
       </header>
-      <section>
+      <section className="sec12">
         <div class="exercise">
           <h2>Walking</h2>
           <div class="video-container">
