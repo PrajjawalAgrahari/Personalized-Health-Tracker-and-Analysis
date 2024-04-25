@@ -5,7 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
     border: border-box;
 }
-.App{
+.App1{
     height: 1500px;
     /* height: 100%; */
     width: 100%;
@@ -15,7 +15,7 @@
     background-position: center;  
     z-index: -1; 
 }
-.navbar{
+.navbar1{
     height: 8%;
     width: 100%;
     background-color: rgba(44, 43, 43, 0.6);
@@ -31,7 +31,7 @@
     color: rgba(243, 187, 21, 1);
     text-shadow: 10px 10px 10px black;
 }
-.sign{
+.sign1{
     height: 10%;
     width: 15%;
     

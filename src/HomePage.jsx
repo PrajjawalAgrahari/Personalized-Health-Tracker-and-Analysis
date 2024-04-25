@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 function App() {
   return (
     <>
-      <div className="App">
-        <div className="navbar">
+      <div className="App1">
+        <div className="navbar1">
           <div className="home">
             <p id="name">HEALTH TRACKER AND ANALYSIS</p>
           </div>
-          <div className="sign">
-            <button className=" button" id="login">
+          <div className="sign1">
+           <Link to="/login"> <button className=" button" id="login">
               {" "}
               login{" "}
-            </button>
+            </button></Link>
             <Link to="/signup"><button className="button" id="signup">
               sign up
             </button></Link>
