@@ -34,7 +34,7 @@ function App() {
             <a href="#">shoulders</a>
           </div>
         </div>
-        <div className="content">
+        <div className="content flex flex-wrap">
           <iframe
             className="video"
             width="24%"
