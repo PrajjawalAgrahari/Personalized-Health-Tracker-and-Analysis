@@ -28,7 +28,7 @@ function App() {
           <input type="password" placeholder="Password" />
           <input type="email" placeholder="Email" />
           <input type="confirm password" placeholder="Confirm Password" />
-          <button>Sign Up</button>
+          <Link to="/Dashboard"><button>Sign Up</button></Link>
           <button>registration</button>
         </form>
       </div>
@@ -45,7 +45,7 @@ function App() {
               Register with your personal details ofter that wlcome to IIITA
               entry-exit managment
             </p>
-            <button class="hidden" id="register">Sign In</button>
+            
           </div>
         </div>
       </div>

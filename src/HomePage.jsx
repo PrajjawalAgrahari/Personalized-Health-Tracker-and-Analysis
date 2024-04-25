@@ -21,7 +21,7 @@ function App() {
           </div>
         </div>
         <div className="aboutus"></div>
-        <div className="exercise">
+        <div className="exercise1">
           <p id="p1">Exercises</p>
         </div>
         <div class="dropdown">
