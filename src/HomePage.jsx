@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import "./HomePage.css";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
@@ -14,9 +15,9 @@ function App() {
               {" "}
               login{" "}
             </button>
-            <button className="button" id="signup">
+            <Link to="/signup"><button className="button" id="signup">
               sign up
-            </button>
+            </button></Link>
           </div>
         </div>
         <div className="aboutus"></div>
