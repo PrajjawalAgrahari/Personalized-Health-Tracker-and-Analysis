@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Sidebar.css";
 
-const Sidebar = () => {
+
+const Sidebar = (props) => {
+  
   // Set the initial state of activeIndex to 0 to make "Dashboard" active by default
   const [activeIndex, setActiveIndex] = useState(0);
   const navigate = useNavigate();
 
+  console.log(props.linkk)
+  
   // Handler function to set the active index when an <li> is clicked
   const handleClick = (index) => {
     setActiveIndex(index);
     // // Navigate to a new page if activeIndex is 1
     if (index === 1) {
       if (index === 1) {
-        navigate("/exf1"); // Navigate to the desired route
+        navigate(props.linkk); // Navigate to the desired route
       }
     }
   };

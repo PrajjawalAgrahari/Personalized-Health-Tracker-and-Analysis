@@ -6,9 +6,48 @@ import Sidebar from "./components/Sidebar";
 // import { LineChart } from "recharts";
 import LinChart from "./components/LineChart";
 import LinChart1 from "./components/LineChart_1";
+import "./index.css";
 
 function App() {
-  const trackSteps = [
+  const [inputText, setInputText] = useState("");
+  const [inputDate, setInputDate] = useState("");
+  const [inputMonth, setInputMonth] = useState("");
+  const [inputWeight, setInputWeight] = useState("");
+
+  let linkki = "/exf1";
+
+  console.log(linkki)
+
+  const bmi = (inputWeight / (1.73 * 1.73))
+  console.log(bmi);
+  if(bmi >= 25)
+  {
+    linkki = "/exf1"
+  }
+  else if(bmi >= 18.5 && bmi < 25)
+  {
+    linkki = "/exf2"
+  }
+  else
+  {
+    linkki = "/exf3"
+  }
+
+
+  const handleInputChange = (event) => {
+    setInputText(event.target.value);
+  };
+  const handleInputDChange = (event) => {
+    setInputDate(event.target.value);
+  };
+  const handleInputPChange = (event) => {
+    setInputWeight(event.target.value);
+  };
+  const handleInputGDChange = (event) => {
+    setInputMonth(event.target.value);
+  };
+
+  const [trackSteps, setTrackSteps] = useState([
     {
       date: "2024-04-12",
       steps: 5000,
@@ -17,72 +56,86 @@ function App() {
       date: "2024-04-13",
       steps: 7500,
     },
-    {
-      date: "2024-04-14",
-      steps: 6000,
-    },
-    {
-      date: "2024-04-15",
-      steps: 8000,
-    },
-    {
-      date: "2024-04-16",
-      steps: 10000,
-    },
-    {
-      date: "2024-04-17",
-      steps: 12000,
-    },
-    {
-      date: "2024-04-18",
-      steps: 9000,
-    },
-  ];
+  ]);
 
-  const weight = [
+  const [trackWeight, setTrackWeight] = useState([
     {
-      date: "2024-04",
+      month: "2024-04",
       weight: 50,
     },
-    {
-      date: "2024-05",
-      weight: 75,
-    },
-    {
-      date: "2024-06",
-      weight: 60,
-    },
-    {
-      date: "2024-07",
-      weight: 80,
-    },
-    {
-      date: "2024-08",
-      weight: 100,
-    },
-    {
-      date: "2024-09",
-      weight: 120,
-    },
-    {
-      date: "2024-10",
-      weight: 90,
-    },
-  ];
+  ]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (inputText.trim() !== "") {
+      const newStep = {
+        date: inputDate,
+        steps: parseInt(inputText.trim()),
+      };
+      setTrackSteps([...trackSteps, newStep]);
+    }
+  };
+
+  // console.log(inputMonth);
+  const handleSubmit2 = (event) => {
+    event.preventDefault();
+    if (inputWeight.trim() !== "") {
+      const newStep = {
+        month: inputMonth,
+        weight: parseInt(inputWeight.trim()),
+      };
+      setTrackWeight([...trackWeight, newStep]);
+    }
+  };
 
   return (
     <>
       <div className="flex">
-        <Sidebar />
+        <Sidebar linkk={linkki} />
         <div className="bg-purple-300 secPart">
-          {/* <div className="lin"> */}
           <div className="flex justify-center items-center m-10 mx-40 h-10 bg-gray-200 text-purple">
             Number of Exercises Completed : 10 / 20
           </div>
+          <div className="flex justify-center align-items btns1">
+            <form className="flex gap-10" onSubmit={handleSubmit}>
+              <input
+                className="h-8 w-40"
+                type="text"
+                placeholder="Enter steps"
+                value={inputText}
+                onChange={handleInputChange}
+              />
+              <input
+                className="h-8 w-40"
+                type="text"
+                placeholder="Enter date"
+                value={inputDate}
+                onChange={handleInputDChange}
+              />
+              <button type="submit">Add Steps</button>
+            </form>
+          </div>
           <LinChart props={trackSteps} />
-          <LinChart1 props={weight} />
-          {/* <LinChart /> */}
-          {/* </div> */}
+          <div className="flex justify-center align-items btns1 my-20">
+            <form className="flex gap-10" onSubmit={handleSubmit2}>
+              <input
+                className="h-8 w-40"
+                type="text"
+                placeholder="Enter weight"
+                value={inputWeight}
+                onChange={handleInputPChange}
+              />
+              <input
+                className="h-8 w-40"
+                type="text"
+                placeholder="Enter month"
+                value={inputMonth}
+                onChange={handleInputGDChange}
+              />
+              <button type="submit">Add Weight</button>
+            </form>
+          </div>
+          <LinChart1 props={trackWeight} />
         </div>
       </div>
     </>

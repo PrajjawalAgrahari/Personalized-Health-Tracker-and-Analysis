@@ -24,7 +24,7 @@ const LinChart_1 = ({props}) => {
       <ResponsiveContainer width="100%" aspect={3}>
         <LineChart data={props} margin={{ right: 300 }}>
           <CartesianGrid />
-          <XAxis dataKey="date" interval={"preserveStartEnd"} />
+          <XAxis dataKey="month" interval={"preserveStartEnd"} />
           <YAxis></YAxis>
           <Legend />
           <Tooltip />
