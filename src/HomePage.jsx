@@ -1,8 +1,62 @@
 // import logo from './logo.svg';
 import "./HomePage.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+  const [selectedFilter, setSelectedFilter] = useState("all");
+  const [videos, setVideos] = useState([
+    {
+      title: "Video 1",
+      src: "https://www.youtube.com/embed/dPb9JxFMuuE?si=bW3dkYL87__rR_J1",
+      category: "chest",
+    },
+    {
+      title: "Video 2",
+      src: "https://www.youtube.com/embed/QdT-Bgmp2u4?si=0TwY6Q-D-Ui85ccn",
+      category: "chest",
+    },
+    {
+      title: "Video 3",
+      src: "https://www.youtube.com/embed/N9rQIk9puXI?si=K9m9ltdHnmnaGGiu",
+      category: "abs",
+    },
+    {
+      title: "Video 4",
+      src: "https://www.youtube.com/embed/D0K-U0pFj4k?si=Ucm72Ki9d1TQqlad",
+      category: "abs",
+    },
+    {
+      title: "Video 5",
+      src: "https://www.youtube.com/embed/X0xt0fYTZv8?si=ZUmDfqkmV7tZ9m7Q",
+      category: "lowerbody",
+    },
+    {
+      title: "Video 6",
+      src: "https://www.youtube.com/embed/oJIk2PyukjY?si=wnkKW2aOHepWpd5o",
+      category: "face",
+    },
+    {
+      title: "Video 7",
+      src: "https://www.youtube.com/embed/g5oQZmk7xMc?si=gOKAbDPlvBqIOXuI",
+      category: "shoulders",
+    },
+    {
+      title: "Video 8",
+      src: "https://www.youtube.com/embed/6JZZTLfoNMY?si=OJg7lKTOxqa5-xHl",
+      category: "shoulders",
+    },
+  ]);
+
+  const handleFilterChange = (category) => {
+    setSelectedFilter(category);
+  };
+
+  const filteredVideos =
+    selectedFilter === "all"
+      ? videos
+      : videos.filter((video) => video.category === selectedFilter);
+
   return (
     <>
       <div className="App1">
@@ -11,13 +65,18 @@ function App() {
             <p id="name">HEALTH TRACKER AND ANALYSIS</p>
           </div>
           <div className="sign1">
-           <Link to="/login"> <button className=" button" id="login">
+            <Link to="/login">
               {" "}
-              login{" "}
-            </button></Link>
-            <Link to="/signup"><button className="button" id="signup">
-              sign up
-            </button></Link>
+              <button className=" button" id="login">
+                {" "}
+                login{" "}
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button className="button" id="signup">
+                sign up
+              </button>
+            </Link>
           </div>
         </div>
         <div className="aboutus"></div>
@@ -27,102 +86,30 @@ function App() {
         <div class="dropdown">
           <button class="dropbtn">Filter</button>
           <div class="dropdown-content">
-            <a href="#">chest</a>
-            <a href="#">abs</a>
-            <a href="#">lowerbody</a>
-            <a href="#">face</a>
-            <a href="#">shoulders</a>
+            <a href="#" onClick={() => handleFilterChange("chest")}>
+              chest
+            </a>
+            <a href="#" onClick={() => handleFilterChange("abs")}>abs</a>
+            <a href="#" onClick={() => handleFilterChange("lowerbody")}>lowerbody</a>
+            <a href="#" onClick={() => handleFilterChange("face")}>face</a>
+            <a href="#" onClick={() => handleFilterChange("shoulders")}>shoulders</a>
           </div>
         </div>
         <div className="content flex flex-wrap">
-          <iframe
-            className="video"
-            width="24%"
-            height="315"
-            src="https://www.youtube.com/embed/dPb9JxFMuuE?si=bW3dkYL87__rR_J1"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-          <iframe
-            className="video"
-            width="24%"
-            height="315"
-            src="https://www.youtube.com/embed/QdT-Bgmp2u4?si=0TwY6Q-D-Ui85ccn"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-          <iframe
-            className="video"
-            width="24%"
-            height="315"
-            src="https://www.youtube.com/embed/N9rQIk9puXI?si=K9m9ltdHnmnaGGiu"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-          <iframe
-            className="video"
-            width="24%"
-            height="315"
-            src="https://www.youtube.com/embed/D0K-U0pFj4k?si=Ucm72Ki9d1TQqlad"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-          <iframe
-            className="video"
-            width="24%"
-            height="315"
-            src="https://www.youtube.com/embed/X0xt0fYTZv8?si=ZUmDfqkmV7tZ9m7Q"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-          <iframe
-            className="video"
-            width="24%"
-            height="315"
-            src="https://www.youtube.com/embed/oJIk2PyukjY?si=wnkKW2aOHepWpd5o"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-          <iframe
-            className="video"
-            width="24%"
-            height="315"
-            src="https://www.youtube.com/embed/g5oQZmk7xMc?si=gOKAbDPlvBqIOXuI"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-          <iframe
-            className="video"
-            width="24%"
-            height="315"
-            src="https://www.youtube.com/embed/6JZZTLfoNMY?si=OJg7lKTOxqa5-xHl"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
+          {filteredVideos.map((video, index) => (
+            <iframe
+              key={index}
+              className="video"
+              width="24%"
+              height="315"
+              src={video.src}
+              title={video.title}
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          ))}
         </div>
       </div>
       <div className="faq">
@@ -256,9 +243,7 @@ function App() {
             </div>
           </details>
         </div>
-        <div className="footer">
-            
-          </div>
+        <div className="footer"></div>
       </div>
     </>
   );
